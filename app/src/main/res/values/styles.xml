@@ -8,4 +8,34 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!--  Dialog的动画 slide -->
+    <style name="slide_in_out">
+        <item name="android:windowEnterAnimation">@anim/slide_in_from_top</item>
+        <!-- 指定显示的动画xml -->
+
+        <item name="android:windowExitAnimation">@anim/slide_out_to_bottom</item>
+        <!-- 指定消失的动画xml -->
+    </style>
+
+    <!--  Dialog 的动画 alpha  -->
+    <style name="alpha_in_out">
+        <item name="android:windowEnterAnimation">@anim/alpha_in</item>
+        <!-- 指定显示的动画xml -->
+
+        <item name="android:windowExitAnimation">@anim/alpha_out</item>
+        <!-- 指定消失的动画xml -->
+    </style>
+
+    <style name="TranslucentTheme" parent="AppTheme">
+    </style>
+
+    <!-- 带动画的底部弹出dialog fragment-->
+    <style name="BottomDialog" parent="android:Animation">
+        <item name="android:windowAnimationStyle">@style/BottomDialogAnimation</item>
+    </style>
+    <style name="BottomDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/dialog_slide_up</item>
+        <item name="android:windowExitAnimation">@anim/dialog_slide_down</item>
+    </style>
+
 </resources>

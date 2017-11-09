@@ -1,6 +1,8 @@
 package com.gentler.drawview.ui;
 
 import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.gentler.drawview.R;
@@ -21,6 +23,10 @@ public class HeartActivity extends BaseActivity {
     @BindView(R.id.draw_surface_view)
     DrawSurfaceView mDrawSurfaceView;
 
+    @BindView(R.id.recycler_view)
+    RecyclerView mRecyclerView;
+
+
     @Override
     public int getLayoutId() {
         return R.layout.activity_heart;
@@ -28,6 +34,8 @@ public class HeartActivity extends BaseActivity {
 
     @Override
     public void initView() {
+        GridLayoutManager mGridLayoutManager=new GridLayoutManager(mActivity,4);
+
 
     }
 
@@ -45,5 +53,7 @@ public class HeartActivity extends BaseActivity {
     public void onClickReset(View view){
         mDrawSurfaceView.reset();
     }
+
+
 
 }

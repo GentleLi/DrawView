@@ -14,7 +14,7 @@ import butterknife.ButterKnife;
 
 public abstract class BaseActivity extends AppCompatActivity implements IActivityLifecycle{
 
-    private BaseActivity mActivity;
+    protected BaseActivity mActivity;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
