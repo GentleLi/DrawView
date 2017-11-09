@@ -5,19 +5,18 @@
     android:layout_height="match_parent"
     tools:context="com.gentler.drawview.ui.MainActivity">
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btn_path"
+
+    <com.gentler.drawview.view.DrawSurfaceView
+        android:id="@+id/draw_surface_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_20"
-        android:text="@string/write_panel" />
+        android:layout_marginBottom="100dp"
+        android:layout_height="match_parent" />
 
     <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btn_heart"
+        android:id="@+id/btn_reset"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_path"
-        android:layout_marginTop="@dimen/dp_20"
-        android:text="@string/diy_draw" />
+        android:layout_alignParentBottom="true"
+        android:text="reset" />
 
 </RelativeLayout>
