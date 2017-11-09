@@ -13,7 +13,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     @BindView(R.id.btn_path)
     AppCompatButton mBtnPath;
@@ -22,14 +22,24 @@ public class MainActivity extends AppCompatActivity {
     AppCompatButton mBtnHeart;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+    public int getLayoutId() {
+        return R.layout.activity_main;
+    }
 
+    @Override
+    public void initView() {
 
     }
 
+    @Override
+    public void initData() {
+
+    }
+
+    @Override
+    public void initListener() {
+
+    }
 
     @OnClick(R.id.btn_heart)
     public void onClickHeart(View view){
@@ -42,8 +52,4 @@ public class MainActivity extends AppCompatActivity {
         Intent intent=new Intent(MainActivity.this,PathActivity.class);
         startActivity(intent);
     }
-
-
-
-
 }
