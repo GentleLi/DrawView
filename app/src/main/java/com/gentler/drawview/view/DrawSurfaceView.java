@@ -18,9 +18,7 @@ import android.view.SurfaceView;
 import com.gentler.drawview.R;
 import com.gentler.drawview.utils.ImageUtils;
 
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
@@ -71,7 +69,7 @@ public class DrawSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     }
 
     private void initBitmap() {
-        mBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.heart);
+        mBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.heart_small);
         mScaledBitmap= ImageUtils.scale(mBitmap,0.6f,0.6f);
     }
 
@@ -136,7 +134,7 @@ public class DrawSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         while (iterator.hasNext()){
             Point point=iterator.next();
             if (null!=point){
-                canvas.drawBitmap(mScaledBitmap, point.x-mBitmap.getWidth()/2,point.y-mBitmap.getHeight()/2,mPaint);
+                canvas.drawBitmap(mBitmap, point.x-mBitmap.getWidth()/2,point.y-mBitmap.getHeight()/2,mPaint);
             }
         }
     }
@@ -158,7 +156,7 @@ public class DrawSurfaceView extends SurfaceView implements SurfaceHolder.Callba
 //                Log.e(TAG,"moveX:"+moveX);
 //                Log.e(TAG,"moveY:"+moveY);
                 int distance=(int)Math.pow(moveX-mLastX,2)+(int) Math.pow(moveY-mLastY,2);
-                int reference= (int) Math.pow(80,2);
+                int reference= (int) Math.pow(70,2);
 //                Log.e(TAG,"distance:"+distance);
 //                Log.e(TAG,"Math.pow(90,2):"+(int)Math.pow(90,2));
                 if (distance>=reference-2000&&distance<=reference+2000){
