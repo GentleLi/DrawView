@@ -58,7 +58,7 @@ public class DIYView extends View {
 
     private void initPaint() {
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mPaint.setColor(mContext.getResources().getColor(R.color.colorAccent));
+        mPaint.setColor(mContext.getResources().getColor(R.color.path_color));
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setStrokeWidth(10);
     }
