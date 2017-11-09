@@ -17,8 +17,8 @@ public class DIYGiftAdapter extends BaseRecyclerAdapter{
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return super.onCreateViewHolder(parent, viewType);
 
+        return super.onCreateViewHolder(parent, viewType);
     }
 
 
