@@ -31,6 +31,7 @@ public class DrawSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     private boolean isRun=false;
     private Paint mPaint;
     private Bitmap mBitmap;
+    private Bitmap mLastBitmap;
     private Bitmap mScaledBitmap;
     CopyOnWriteArrayList<Point> mPointList=new CopyOnWriteArrayList<>();
 //    private List<Point> mPointList=new ArrayList<>();
@@ -38,6 +39,7 @@ public class DrawSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     private int mDownY;
     private int mLastX;
     private int mLastY;
+
 
     public DrawSurfaceView(Context context) {
         this(context,null);
@@ -66,6 +68,16 @@ public class DrawSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         setKeepScreenOn(true);
         setZOrderOnTop(true);
         getHolder().setFormat(PixelFormat.TRANSLUCENT);
+    }
+
+    public void setBitmapSource(int bitmapSource){
+        mPointList.clear();
+        if (null!=mBitmap){
+            mLastBitmap=mBitmap;
+            mLastBitmap=null;
+            mBitmap = BitmapFactory.decodeResource(getResources(), bitmapSource);
+            mScaledBitmap= ImageUtils.scale(mBitmap,0.6f,0.6f);
+        }
     }
 
     private void initBitmap() {
@@ -134,7 +146,7 @@ public class DrawSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         while (iterator.hasNext()){
             Point point=iterator.next();
             if (null!=point){
-                canvas.drawBitmap(mBitmap, point.x-mBitmap.getWidth()/2,point.y-mBitmap.getHeight()/2,mPaint);
+                canvas.drawBitmap(mScaledBitmap, point.x-mScaledBitmap.getWidth()/2,point.y-mScaledBitmap.getHeight()/2,mPaint);
             }
         }
     }
@@ -156,7 +168,7 @@ public class DrawSurfaceView extends SurfaceView implements SurfaceHolder.Callba
 //                Log.e(TAG,"moveX:"+moveX);
 //                Log.e(TAG,"moveY:"+moveY);
                 int distance=(int)Math.pow(moveX-mLastX,2)+(int) Math.pow(moveY-mLastY,2);
-                int reference= (int) Math.pow(70,2);
+                int reference= (int) Math.pow(75,2);
 //                Log.e(TAG,"distance:"+distance);
 //                Log.e(TAG,"Math.pow(90,2):"+(int)Math.pow(90,2));
                 if (distance>=reference-2000&&distance<=reference+2000){

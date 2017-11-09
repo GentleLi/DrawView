@@ -5,24 +5,32 @@
     android:layout_height="match_parent"
     tools:context="com.gentler.drawview.ui.MainActivity">
 
+    <LinearLayout
+        android:id="@+id/lay_menus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_reset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="reset" />
+    </LinearLayout>
 
     <com.gentler.drawview.view.DrawSurfaceView
         android:id="@+id/draw_surface_view"
         android:layout_width="match_parent"
-        android:layout_marginBottom="100dp"
-        android:layout_height="match_parent" />
-
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btn_reset"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="reset" />
+        android:layout_height="match_parent"
+        android:layout_below="@+id/lay_menus" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_20">
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
 
     </android.support.v7.widget.RecyclerView>
+
 </RelativeLayout>
