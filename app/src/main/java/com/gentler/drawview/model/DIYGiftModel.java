@@ -1,7 +1,13 @@
 package com.gentler.drawview.model;
 
+import android.os.Message;
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import com.gentler.drawview.config.Constants;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by admin on 2017/11/8.
@@ -12,6 +18,8 @@ public class DIYGiftModel implements Parcelable {
     private int x;
     private int y;
     private int giftRes;
+    private int count= (int) (Math.random()*5);
+    private TimerTask task;
 
     public DIYGiftModel(){
         super();
@@ -46,6 +54,29 @@ public class DIYGiftModel implements Parcelable {
         dest.writeInt(y);
         dest.writeInt(giftRes);
     }
+
+    public void changePosition(){
+        TimerTask task=getTimerTask();
+        new Timer().schedule(task,1000,80);
+    }
+
+    public TimerTask getTimerTask() {
+        TimerTask task = new TimerTask() {
+
+            @Override
+            public void run() {
+                // 需要做的事:发送消息
+                count++;
+                float angle = (float) (0.1* Constants.PI* count);
+                int diff= (int) (4*Math.sin(angle));
+                setX(x+diff);
+//                setY(y+diff);
+            }
+        };
+        return task;
+    }
+
+
 
     public int getX() {
         return x;

@@ -1,5 +1,6 @@
 package com.gentler.drawview.ui;
 
+import android.content.Intent;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +8,7 @@ import android.view.View;
 
 import com.gentler.drawview.R;
 import com.gentler.drawview.adapter.DIYGiftAdapter;
+import com.gentler.drawview.config.MyParams;
 import com.gentler.drawview.model.DIYGiftModel;
 import com.gentler.drawview.model.DIYGiftRes;
 import com.gentler.drawview.view.DrawSurfaceView;
@@ -25,11 +27,14 @@ public class HeartActivity extends BaseActivity {
     @BindView(R.id.btn_reset)
     AppCompatButton mBtnReset;
 
-    @BindView(R.id.draw_surface_view)
+    @BindView(R.id.reappear_surface_view)
     DrawSurfaceView mDrawSurfaceView;
 
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
+
+    @BindView(R.id.btn_save)
+    AppCompatButton mBtnSave;
 
 
     private ArrayList<DIYGiftModel> mGiftModelList=new ArrayList<>();
@@ -77,6 +82,11 @@ public class HeartActivity extends BaseActivity {
         mDrawSurfaceView.reset();
     }
 
-
-
+    @OnClick(R.id.btn_save)
+    public void onClickSave(View view){
+        ArrayList<DIYGiftModel> diyGiftModels= (ArrayList<DIYGiftModel>) mDrawSurfaceView.getDataList();
+        Intent intent=new Intent(HeartActivity.this,ReappearActivity.class);
+        intent.putParcelableArrayListExtra(MyParams.INTENT_ARRAY_LIST_GIFT,diyGiftModels);
+        startActivity(intent);
+    }
 }
