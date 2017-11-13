@@ -1,6 +1,7 @@
 package com.gentler.drawview.ui;
 
 import android.content.Intent;
+import android.graphics.Rect;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -87,6 +88,8 @@ public class HeartActivity extends BaseActivity {
         ArrayList<DIYGiftModel> diyGiftModels= (ArrayList<DIYGiftModel>) mDrawSurfaceView.getDataList();
         Intent intent=new Intent(HeartActivity.this,ReappearActivity.class);
         intent.putParcelableArrayListExtra(MyParams.INTENT_ARRAY_LIST_GIFT,diyGiftModels);
+        Rect rect=mDrawSurfaceView.getGraphicRect();
+
         startActivity(intent);
     }
 }
