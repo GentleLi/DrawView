@@ -1,6 +1,5 @@
 package com.gentler.drawview.model;
 
-import android.os.Message;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -18,7 +17,7 @@ public class DIYGiftModel implements Parcelable {
     private int x;
     private int y;
     private int giftRes;
-    private int count= (int) (Math.random()*5);
+    private int count= (int) (Math.random()*3);
     private TimerTask task;
 
     public DIYGiftModel(){
@@ -57,7 +56,7 @@ public class DIYGiftModel implements Parcelable {
 
     public void changePosition(){
         TimerTask task=getTimerTask();
-        new Timer().schedule(task,1000,80);
+        new Timer().schedule(task,1000,50);
     }
 
     public TimerTask getTimerTask() {

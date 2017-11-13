@@ -6,7 +6,6 @@ import android.view.View;
 
 import com.gentler.drawview.R;
 import com.gentler.drawview.config.MyParams;
-import com.gentler.drawview.enmu.DIYGift;
 import com.gentler.drawview.model.DIYGiftModel;
 import com.gentler.drawview.view.ReappearSurfaceView;
 
@@ -58,7 +57,7 @@ public class ReappearActivity extends BaseActivity {
                 mReappearSurfaceView.startDraw();
 
             }
-        },3000);
+        },1000);
     }
 
     @Override
