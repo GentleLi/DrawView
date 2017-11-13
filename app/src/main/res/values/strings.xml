@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DrawView</string>
+    <string name="app_name">Draw Happily</string>
     <string name="write_panel">写字板</string>
     <string name="diy_draw">个性绘画</string>
 </resources>

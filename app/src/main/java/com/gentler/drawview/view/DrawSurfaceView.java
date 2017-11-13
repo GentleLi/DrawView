@@ -119,7 +119,7 @@ public class DrawSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         Log.e(TAG, "surfaceCreated");
-        if (null==mDrawThread){
+        if (null == mDrawThread) {
             startDraw();
         }
     }
@@ -132,9 +132,9 @@ public class DrawSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
         Log.e(TAG, "surfaceDestroyed");
-        if (null!=mDrawThread){
+        if (null != mDrawThread) {
             mDrawThread.isRun = false;
-            mDrawThread=null;
+            mDrawThread = null;
         }
     }
 
