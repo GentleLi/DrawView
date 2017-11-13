@@ -68,7 +68,7 @@ public class ReappearActivity extends BaseActivity {
 
     @OnClick(R.id.btn_reset)
     public void onClickReset(View view) {
-//        mReappearSurfaceView.reset();
+        mReappearSurfaceView.reset();
     }
 
 

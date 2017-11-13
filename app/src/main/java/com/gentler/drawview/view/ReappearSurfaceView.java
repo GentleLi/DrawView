@@ -25,6 +25,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import butterknife.OnClick;
+
 /**
  * Created by admin on 2017/11/8.
  */
@@ -128,6 +130,11 @@ public class ReappearSurfaceView extends SurfaceView implements SurfaceHolder.Ca
     public void surfaceDestroyed(SurfaceHolder holder) {
         Log.e(TAG,"surfaceDestroyed");
         isRun=false;
+        for (DIYGiftModel model:mDiyGiftModelList){
+            model.cancelTask();
+        }
+
+
     }
 
     public void startDraw(){
@@ -213,11 +220,14 @@ public class ReappearSurfaceView extends SurfaceView implements SurfaceHolder.Ca
 //        return super.onTouchEvent(event);
 //    }
 
-
     public void reset(){
         mDiyGiftModelList.clear();
+
         postInvalidate();
     }
+
+
+
 
 
 

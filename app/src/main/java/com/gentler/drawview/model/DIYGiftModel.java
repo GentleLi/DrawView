@@ -2,6 +2,7 @@ package com.gentler.drawview.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 import com.gentler.drawview.config.Constants;
 
@@ -13,12 +14,14 @@ import java.util.TimerTask;
  */
 
 public class DIYGiftModel implements Parcelable {
-
+    private static final String TAG=DIYGiftModel.class.getSimpleName();
     private int x;
     private int y;
     private int giftRes;
     private int count= (int) (Math.random()*3);
     private TimerTask task;
+    private TimerTask mTimerTask;
+    private Timer mTimer;
 
     public DIYGiftModel(){
         super();
@@ -55,8 +58,9 @@ public class DIYGiftModel implements Parcelable {
     }
 
     public void changePosition(){
-        TimerTask task=getTimerTask();
-        new Timer().schedule(task,1000,50);
+        mTimer = new Timer();
+        mTimerTask = getTimerTask();
+        mTimer.schedule(mTimerTask,1000,50);
     }
 
     public TimerTask getTimerTask() {
@@ -69,13 +73,24 @@ public class DIYGiftModel implements Parcelable {
                 float angle = (float) (0.1* Constants.PI* count);
                 int diff= (int) (4*Math.sin(angle));
                 setX(x+diff);
+                String name=Thread.currentThread().getName();
+                Log.e(TAG,"name:"+name);
 //                setY(y+diff);
             }
         };
         return task;
     }
 
-
+    public void cancelTask(){
+        if (null!=mTimerTask){
+            mTimerTask.cancel();
+            mTimerTask=null;
+        }
+        if (null!=mTimer){
+            mTimer.cancel();
+            mTimer=null;
+        }
+    }
 
     public int getX() {
         return x;
