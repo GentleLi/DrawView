@@ -3,4 +3,4 @@
 
 
 手绘个性礼物并且还原   
-![]（https://github.com/GentleLi/DrawView/blob/master/draw.gif）
+![个性礼物](https://github.com/GentleLi/DrawView/blob/master/draw.gif)
