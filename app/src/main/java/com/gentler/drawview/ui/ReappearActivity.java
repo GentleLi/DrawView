@@ -44,7 +44,7 @@ public class ReappearActivity extends BaseActivity {
         Intent intent = getIntent();
         if (intent.hasExtra(MyParams.INTENT_ARRAY_LIST_GIFT)) {
             mGiftModelList = intent.getParcelableArrayListExtra(MyParams.INTENT_ARRAY_LIST_GIFT);
-            for (DIYGiftModel model:mGiftModelList){
+            for (DIYGiftModel model : mGiftModelList) {
                 mDataList.add(model);
             }
         }
@@ -57,7 +57,7 @@ public class ReappearActivity extends BaseActivity {
                 mReappearSurfaceView.startDraw();
 
             }
-        },1000);
+        }, 1000);
     }
 
     @Override
@@ -68,7 +68,13 @@ public class ReappearActivity extends BaseActivity {
 
     @OnClick(R.id.btn_reset)
     public void onClickReset(View view) {
-        mReappearSurfaceView.reset();
+        mReappearSurfaceView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mReappearSurfaceView.reset();
+                finish();
+            }
+        }, 1000);
     }
 
 

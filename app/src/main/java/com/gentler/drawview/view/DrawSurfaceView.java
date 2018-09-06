@@ -167,7 +167,7 @@ public class DrawSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.SRC);
             return;
         }
-        canvas.drawRect(mRect,mPaint);
+//        canvas.drawRect(mRect,mPaint);
 //        canvas.drawBitmap(mScaledBitmap,100,100,mPaint);
         Iterator<DIYGiftModel> iterator = mDiyGiftModelList.iterator();
         while (iterator.hasNext()) {
@@ -227,7 +227,7 @@ public class DrawSurfaceView extends SurfaceView implements SurfaceHolder.Callba
 
                 int distance = (int) Math.pow(moveX - mLastX, 2) + (int) Math.pow(moveY - mLastY, 2);
 
-                int reference = (int) Math.pow(60, 2);
+                int reference = (int) Math.pow(80, 2);
                 Log.e(TAG,"distance:"+distance);
                 Log.e(TAG,"distance开方:"+Math.pow(distance,0.5));
 
